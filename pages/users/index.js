@@ -1,6 +1,6 @@
 export default function Users({ users }) {
   console.log(users)
-    let users_element = users.map(user => <p key={user.name}>{user.name}</p>)
+    let users_element = users?.map(user => <p key={user.name}>{user.name}</p>)
     return (
     <div className="Users">
         <h1>Users</h1>
@@ -10,13 +10,13 @@ export default function Users({ users }) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/users')
-  const data = await res.json()
-  const users = data.users
-  return {
-    props: {
-      users,
-    },
-  }
-}
+// export async function getStaticProps() {
+//   const res = await fetch('https://next-greg.vercel.app/api/users')
+//   const data = await res.json()
+//   const users = data.users
+//   return {
+//     props: {
+//       users,
+//     },
+//   }
+// }
