@@ -10,13 +10,15 @@ export default function Users({ users }) {
   )
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch('https://next-greg.vercel.app/api/users')
-//   const data = await res.json()
-//   const users = data.users
-//   return {
-//     props: {
-//       users,
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/users`
+  console.log(url)
+  const res = await fetch(url)
+  const data = await res.json()
+  const users = data.users
+  return {
+    props: {
+      users,
+    },
+  }
+}
